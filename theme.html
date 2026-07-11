@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UiVent — Theme & Colour Reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+  * { font-family: 'Inter', sans-serif; }
+  code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+  body { background: #f3f4f6; }
+
+  .swatch { width: 56px; height: 56px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
+  .copy-btn { cursor: pointer; transition: background 0.15s; }
+  .copy-btn:hover { background: #e9d5ff; }
+
+  .section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+  .token-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 8px;
+  }
+  .token-name { font-weight: 700; font-size: 0.8rem; color: #111827; min-width: 180px; }
+  .token-desc { font-size: 0.75rem; color: #6b7280; flex: 1; }
+  .token-hex  { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 600;
+                background: #f3f4f6; padding: 3px 8px; border-radius: 6px; color: #374151;
+                cursor: pointer; border: 1px solid #e5e7eb; transition: background 0.15s; }
+  .token-hex:hover { background: #e5e7eb; }
+
+  .demo-sidebar {
+    background: #27134A;
+    border-radius: 14px;
+    overflow: hidden;
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .preview-card { background: white; border-radius: 10px; border: 1px solid #e5e7eb; padding: 14px; }
+
+  .code-block {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+  .code-block .c  { color: #6c7086; } /* comment */
+  .code-block .p  { color: #cba6f7; } /* property */
+  .code-block .v  { color: #a6e3a1; } /* value / hex */
+  .code-block .s  { color: #89dceb; } /* selector */
+  .code-block .k  { color: #f38ba8; } /* keyword */
+
+  .badge-super { background: linear-gradient(135deg, #27134A, #582C83); color: white;
+                 font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+                 letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-active-demo { background: #F9A51B; color: #27134A; font-weight: 700; border-radius: 8px;
+                     padding: 8px 12px; font-size: 0.75rem; display: flex; align-items: center; gap: 8px; }
+  .nav-item-demo   { color: #c4b5fd; border-radius: 8px; padding: 8px 12px;
+                     font-size: 0.75rem; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body class="min-h-screen p-6 md:p-10">
+
+<!-- ══════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto">
+
+  <div class="flex items-center gap-3 mb-2">
+    <div style="background:#27134A;" class="px-3 py-1.5 rounded-lg flex items-center gap-2">
+      <div class="bg-amber-400 text-purple-950 px-2 py-0.5 rounded font-extrabold text-base leading-tight">Ui</div>
+      <span class="font-bold text-white text-lg tracking-wide">Vent</span>
+      <span class="badge-super">Super</span>
+    </div>
+    <div>
+      <h1 class="text-2xl font-extrabold text-gray-900">Theme & Colour Reference</h1>
+      <p class="text-sm text-gray-500">Share this file with your group — use these exact values in every portal.</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2 mb-8 mt-3">
+    <span class="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full font-semibold">
+      <i class="fas fa-circle-info mr-1"></i> Click any hex code to copy it
+    </span>
+    <span class="text-xs bg-purple-50 text-purple-700 border border-purple-200 px-3 py-1 rounded-full font-semibold">
+      UiTM HEP Division · UiVent v2026
+    </span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 1 — COLOUR PALETTE
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <p class="section-title"><i class="fas fa-palette mr-1"></i> Core Colour Palette</p>
+
+    <!-- Purples -->
+    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 mt-1">Purple Family</p>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#582C83;"></div>
+      <div class="token-name">Primary Purple</div>
+      <div class="token-desc">Main brand colour — buttons, icons, active states, toggle ON</div>
+      <code class="token-hex" onclick="copyText('#582C83', this)">#582C83</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#3B1F5E;"></div>
+      <div class="token-name">Dark Purple</div>
+      <div class="token-desc">Hover states, deeper accents</div>
+      <code class="token-hex" onclick="copyText('#3B1F5E', this)">#3B1F5E</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#27134A;"></div>
+      <div class="token-name">Darkest Purple</div>
+      <div class="token-desc">Sidebar background, page/body bg, gradient start</div>
+      <code class="token-hex" onclick="copyText('#27134A', this)">#27134A</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#f0ebfa; border:1px solid #ddd5f5;"></div>
+      <div class="token-name">Purple Tint</div>
+      <div class="token-desc">Card backgrounds, badge fills, secondary button bg</div>
+      <code class="token-hex" onclick="copyText('#f0ebfa', this)">#f0ebfa</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#f5f0ff; border:1px solid #e9d5ff;"></div>
+      <div class="token-name">Purple Tint 2</div>
+      <div class="token-desc">Table row hover, subtle highlights</div>
+      <code class="token-hex" onclick="copyText('#f5f0ff', this)">#f5f0ff</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#ddd5f5; border:1px solid #c4b5e8;"></div>
+      <div class="token-name">Purple Border</div>
+      <div class="token-desc">Borders on purple-tinted elements, dividers</div>
+      <code class="token-hex" onclick="copyText('#ddd5f5', this)">#ddd5f5</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#c4b5e8; border:1px solid #b39ddb;"></div>
+      <div class="token-name">Purple Border Dark</div>
+      <div class="token-desc">Scrollbar thumb, stronger borders</div>
+      <code class="token-hex" onclick="copyText('#c4b5e8', this)">#c4b5e8</code>
+    </div>
+
+    <!-- Golds -->
+    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 mt-5">Gold Family</p>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#F9A51B;"></div>
+      <div class="token-name">UiTM Gold</div>
+      <div class="token-desc">Active nav highlight, clearance badge, accent icons, role label</div>
+      <code class="token-hex" onclick="copyText('#F9A51B', this)">#F9A51B</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#C47E0E;"></div>
+      <div class="token-name">Gold Dark</div>
+      <div class="token-desc">Login button gradient start, pressed/hover state for gold</div>
+      <code class="token-hex" onclick="copyText('#C47E0E', this)">#C47E0E</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#fef3c7; border:1px solid #fde68a;"></div>
+      <div class="token-name">Gold Tint</div>
+      <div class="token-desc">Gold badge/chip backgrounds</div>
+      <code class="token-hex" onclick="copyText('#fef3c7', this)">#fef3c7</code>
+    </div>
+
+    <!-- Danger -->
+    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 mt-5">Danger / Alert</p>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#dc2626;"></div>
+      <div class="token-name">Danger Red</div>
+      <div class="token-desc">Log Out button, destructive actions, wipe/delete confirms</div>
+      <code class="token-hex" onclick="copyText('#dc2626', this)">#dc2626</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#b91c1c;"></div>
+      <div class="token-name">Danger Red Dark</div>
+      <div class="token-desc">Hover state for danger buttons</div>
+      <code class="token-hex" onclick="copyText('#b91c1c', this)">#b91c1c</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#fff5f5; border:1px solid #fecaca;"></div>
+      <div class="token-name">Danger Tint</div>
+      <div class="token-desc">Log Out button bg, danger zone background</div>
+      <code class="token-hex" onclick="copyText('#fff5f5', this)">#fff5f5</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#ef4444;"></div>
+      <div class="token-name">Alert Red</div>
+      <div class="token-desc">Notification dot (bell icon pulse), badge for urgent counts</div>
+      <code class="token-hex" onclick="copyText('#ef4444', this)">#ef4444</code>
+    </div>
+
+    <!-- Neutral -->
+    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 mt-5">Neutral / Page</p>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#f3f4f6; border:1px solid #e5e7eb;"></div>
+      <div class="token-name">Page Background</div>
+      <div class="token-desc">Main body / page background (bg-gray-100)</div>
+      <code class="token-hex" onclick="copyText('#f3f4f6', this)">#f3f4f6</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#ffffff; border:1px solid #e5e7eb;"></div>
+      <div class="token-name">Card / Surface</div>
+      <div class="token-desc">All content cards, topbar, modals</div>
+      <code class="token-hex" onclick="copyText('#ffffff', this)">#ffffff</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#111827;"></div>
+      <div class="token-name">Text Primary</div>
+      <div class="token-desc">Headings, important labels</div>
+      <code class="token-hex" onclick="copyText('#111827', this)">#111827</code>
+    </div>
+
+    <div class="token-row">
+      <div class="swatch" style="background:#6b7280;"></div>
+      <div class="token-name">Text Secondary</div>
+      <div class="token-desc">Subtitles, descriptions, metadata</div>
+      <code class="token-hex" onclick="copyText('#6b7280', this)">#6b7280</code>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 2 — RGBA / TRANSPARENCY TOKENS
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <p class="section-title"><i class="fas fa-droplet mr-1"></i> Transparency / RGBA Tokens</p>
+    <p class="text-xs text-gray-500 mb-4">These are used for sidebar overlays, clearance badge, and border tints. Always use the exact rgba values below.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(88,44,131,0.25); border:1px dashed #c4b5e8;"></div>
+        <div>
+          <div class="token-name">Sidebar header strip bg</div>
+          <code class="token-hex" onclick="copyText('rgba(88,44,131,0.25)', this)">rgba(88,44,131,0.25)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(88,44,131,0.50); border:1px dashed #c4b5e8;"></div>
+        <div>
+          <div class="token-name">Sidebar header border</div>
+          <code class="token-hex" onclick="copyText('rgba(88,44,131,0.50)', this)">rgba(88,44,131,0.50)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(249,165,27,0.10); border:1px solid rgba(249,165,27,0.25);"></div>
+        <div>
+          <div class="token-name">Clearance badge bg</div>
+          <code class="token-hex" onclick="copyText('rgba(249,165,27,0.10)', this)">rgba(249,165,27,0.10)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(249,165,27,0.25); border:1px dashed #f9a51b;"></div>
+        <div>
+          <div class="token-name">Clearance badge border</div>
+          <code class="token-hex" onclick="copyText('rgba(249,165,27,0.25)', this)">rgba(249,165,27,0.25)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(39,19,74,0.70);"></div>
+        <div>
+          <div class="token-name">Sidebar footer bg</div>
+          <code class="token-hex" onclick="copyText('rgba(39,19,74,0.70)', this)">rgba(39,19,74,0.70)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(88,44,131,0.40); border:1px dashed #7c3aed;"></div>
+        <div>
+          <div class="token-name">Sidebar footer border</div>
+          <code class="token-hex" onclick="copyText('rgba(88,44,131,0.40)', this)">rgba(88,44,131,0.40)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(255,255,255,0.08);"></div>
+        <div>
+          <div class="token-name">Nav item hover bg</div>
+          <code class="token-hex" onclick="copyText('rgba(255,255,255,0.08)', this)">rgba(255,255,255,0.08)</code>
+        </div>
+      </div>
+
+      <div class="token-row" style="margin-bottom:0;">
+        <div class="swatch" style="background:rgba(249,165,27,0.30);"></div>
+        <div>
+          <div class="token-name">Active nav shadow</div>
+          <code class="token-hex" onclick="copyText('rgba(249,165,27,0.30)', this)">rgba(249,165,27,0.30)</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 3 — GRADIENTS
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <p class="section-title"><i class="fas fa-wand-magic-sparkles mr-1"></i> Gradients</p>
+
+    <div class="space-y-4">
+      <div>
+        <div class="h-14 rounded-xl mb-2" style="background: linear-gradient(135deg, #27134A 0%, #582C83 100%);"></div>
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-bold text-gray-800">Page Banner / Super Admin Badge</p>
+            <p class="text-xs text-gray-500">Welcome banner, .super-badge, sidebar header gradient</p>
+          </div>
+          <code class="token-hex" onclick="copyText('linear-gradient(135deg, #27134A 0%, #582C83 100%)', this)">linear-gradient(135deg, #27134A → #582C83)</code>
+        </div>
+      </div>
+
+      <div>
+        <div class="h-14 rounded-xl mb-2" style="background: linear-gradient(135deg, #C47E0E 0%, #F9A51B 55%, #E09010 100%);"></div>
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-bold text-gray-800">Login / Primary Action Button</p>
+            <p class="text-xs text-gray-500">Used on the Sign In button in index_sa.html</p>
+          </div>
+          <code class="token-hex" onclick="copyText('linear-gradient(135deg, #C47E0E 0%, #F9A51B 55%, #E09010 100%)', this)">linear-gradient(135deg, #C47E0E → #F9A51B → #E09010)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 4 — COMPONENT RULES
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <p class="section-title"><i class="fas fa-cubes mr-1"></i> Component Colour Rules</p>
+    <p class="text-xs text-gray-500 mb-5">Follow these rules exactly so every portal looks consistent.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Sidebar -->
+      <div class="border border-gray-200 rounded-xl p-4">
+        <p class="text-xs font-bold text-gray-700 mb-3 uppercase tracking-wider">Sidebar</p>
+        <div class="demo-sidebar p-3 space-y-1">
+          <div style="background:rgba(88,44,131,0.25); border-bottom:1px solid rgba(88,44,131,0.5); padding:10px 12px; display:flex; align-items:center; gap:8px; margin:-12px -12px 8px -12px;">
+            <div style="background:#F9A51B; color:#27134A; padding:2px 7px; border-radius:5px; font-weight:900; font-size:14px;">Ui</div>
+            <span style="color:white; font-weight:700; font-size:15px;">Vent</span>
+            <span class="badge-super">Super</span>
+          </div>
+          <div style="background:rgba(249,165,27,0.10); border:1px solid rgba(249,165,27,0.25); border-radius:8px; padding:6px 10px; display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+            <span style="width:8px; height:8px; background:#F9A51B; border-radius:50%; display:inline-block;"></span>
+            <span style="color:#F9A51B; font-size:11px; font-weight:600;">Clearance Level: APEX</span>
+          </div>
+          <div class="nav-active-demo"><i class="fas fa-shield-halved" style="color:#27134A;"></i> Command Centre</div>
+          <div class="nav-item-demo"><i class="fas fa-university text-purple-400"></i> Campus Oversight</div>
+          <div class="nav-item-demo"><i class="fas fa-calendar-alt text-purple-400"></i> Global Events</div>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs text-gray-600">
+          <p>• Background: <code class="bg-gray-100 px-1 rounded">#27134A</code></p>
+          <p>• Active nav: <code class="bg-gray-100 px-1 rounded">#F9A51B</code> bg, <code class="bg-gray-100 px-1 rounded">#27134A</code> text</p>
+          <p>• Inactive nav text: <code class="bg-gray-100 px-1 rounded">text-purple-200</code></p>
+          <p>• Inactive nav icons: <code class="bg-gray-100 px-1 rounded">text-purple-400</code></p>
+          <p>• Nav hover bg: <code class="bg-gray-100 px-1 rounded">rgba(255,255,255,0.08)</code></p>
+          <p>• Nav hover icon: <code class="bg-gray-100 px-1 rounded">#F9A51B</code></p>
+        </div>
+      </div>
+
+      <!-- Topbar -->
+      <div class="border border-gray-200 rounded-xl p-4">
+        <p class="text-xs font-bold text-gray-700 mb-3 uppercase tracking-wider">Topbar</p>
+        <div class="bg-white border border-gray-200 rounded-xl p-3 flex items-center justify-between shadow-sm mb-3">
+          <span class="text-sm font-bold text-gray-800">Page Title</span>
+          <div class="flex items-center gap-2">
+            <span style="background:#f0ebfa; color:#582C83; border:1px solid #ddd5f5; font-size:11px; font-weight:700; padding:3px 10px; border-radius:99px;">
+              <i class="fas fa-crown text-amber-500"></i> Super Admin Session
+            </span>
+            <button style="color:#582C83; background:#f0ebfa; border:1px solid #ddd5f5; font-size:11px; font-weight:700; padding:4px 10px; border-radius:7px;">
+              <i class="fas fa-lock"></i> Emergency Lock
+            </button>
+            <button style="color:#dc2626; background:#fff5f5; border:1px solid #fecaca; font-size:11px; font-weight:700; padding:4px 10px; border-radius:7px;">
+              <i class="fas fa-right-from-bracket"></i> Log Out
+            </button>
+          </div>
+        </div>
+        <div class="space-y-1.5 text-xs text-gray-600">
+          <p>• Background: <code class="bg-gray-100 px-1 rounded">#ffffff</code>, border: <code class="bg-gray-100 px-1 rounded">#e5e7eb</code></p>
+          <p>• Session badge bg: <code class="bg-gray-100 px-1 rounded">#f0ebfa</code>, text: <code class="bg-gray-100 px-1 rounded">#582C83</code></p>
+          <p>• Emergency Lock: same as session badge</p>
+          <p>• Log Out bg: <code class="bg-gray-100 px-1 rounded">#fff5f5</code>, text: <code class="bg-gray-100 px-1 rounded">#dc2626</code></p>
+          <p>• Log Out border: <code class="bg-gray-100 px-1 rounded">#fecaca</code></p>
+          <p>• Bell alert dot: <code class="bg-gray-100 px-1 rounded">#ef4444</code></p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="border border-gray-200 rounded-xl p-4">
+        <p class="text-xs font-bold text-gray-700 mb-3 uppercase tracking-wider">Buttons</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button style="background:#582C83; color:white; font-size:12px; font-weight:700; padding:7px 14px; border-radius:8px;">Primary Action</button>
+          <button style="background:#f0ebfa; color:#582C83; font-size:12px; font-weight:600; padding:7px 14px; border-radius:8px; border:1px solid #ddd5f5;">Secondary</button>
+          <button style="background:#dc2626; color:white; font-size:12px; font-weight:700; padding:7px 14px; border-radius:8px;">Danger</button>
+          <button style="background:#d97706; color:white; font-size:12px; font-weight:700; padding:7px 14px; border-radius:8px;">Warning</button>
+        </div>
+        <div class="space-y-1.5 text-xs text-gray-600">
+          <p>• Primary bg: <code class="bg-gray-100 px-1 rounded">#582C83</code>, text: white</p>
+          <p>• Secondary bg: <code class="bg-gray-100 px-1 rounded">#f0ebfa</code>, text: <code class="bg-gray-100 px-1 rounded">#582C83</code></p>
+          <p>• Secondary hover: <code class="bg-gray-100 px-1 rounded">#ddd5f5</code></p>
+          <p>• Danger bg: <code class="bg-gray-100 px-1 rounded">#dc2626</code>, hover: <code class="bg-gray-100 px-1 rounded">#b91c1c</code></p>
+          <p>• Warning bg: <code class="bg-gray-100 px-1 rounded">#d97706</code></p>
+        </div>
+      </div>
+
+      <!-- Modals & Toasts -->
+      <div class="border border-gray-200 rounded-xl p-4">
+        <p class="text-xs font-bold text-gray-700 mb-3 uppercase tracking-wider">Modals & Toast</p>
+        <div class="bg-white border border-gray-200 rounded-xl p-3 shadow mb-2">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; background:#f0ebfa; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <i class="fas fa-triangle-exclamation" style="color:#582C83; font-size:12px;"></i>
+            </div>
+            <span class="text-sm font-bold text-gray-900">Confirm Action</span>
+          </div>
+          <div class="flex gap-2">
+            <button style="background:#582C83; color:white; font-size:11px; font-weight:700; padding:5px 12px; border-radius:7px; flex:1;">Confirm</button>
+            <button style="background:#f3f4f6; color:#374151; font-size:11px; font-weight:700; padding:5px 12px; border-radius:7px; flex:1;">Cancel</button>
+          </div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:10px 14px; display:flex; align-items:center; gap:8px;">
+          <i class="fas fa-check-circle" style="color:#F9A51B;"></i>
+          <span style="color:white; font-size:12px; font-weight:500;">Action completed.</span>
+        </div>
+        <div class="space-y-1.5 text-xs text-gray-600 mt-3">
+          <p>• Modal bg: white, overlay: <code class="bg-gray-100 px-1 rounded">bg-gray-900/70</code></p>
+          <p>• Modal icon bg: <code class="bg-gray-100 px-1 rounded">#f0ebfa</code></p>
+          <p>• Confirm btn: <code class="bg-gray-100 px-1 rounded">#582C83</code> (purple default)</p>
+          <p>• Toast bg: <code class="bg-gray-100 px-1 rounded">#111827</code>, icon: <code class="bg-gray-100 px-1 rounded">#F9A51B</code></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 5 — COPY-PASTE CSS
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <div class="flex items-center justify-between mb-4">
+      <p class="section-title mb-0"><i class="fas fa-code mr-1"></i> Copy-Paste CSS — Paste this in every page's &lt;style&gt; block</p>
+      <button onclick="copyFullCSS()" class="text-xs font-bold px-4 py-2 rounded-lg" style="background:#582C83; color:white;">
+        <i class="fas fa-copy mr-1"></i> Copy All CSS
+      </button>
+    </div>
+
+    <div class="code-block" id="fullCSS">
+<span class="c">/* ═══════════════════════════════════════════════════
+   UiVent — UiTM Brand Theme Tokens
+   Use these in every portal for consistent styling.
+═══════════════════════════════════════════════════ */</span>
+
+<span class="c">/* ── Colour Variables ─────────────────────────────
+   --uitm-purple      : #582C83   Primary purple
+   --uitm-purple-dark : #3B1F5E   Darker purple
+   --uitm-purple-deep : #27134A   Darkest / sidebar bg
+   --uitm-purple-tint : #f0ebfa   Light purple tint
+   --uitm-purple-tint2: #f5f0ff   Hover row tint
+   --uitm-gold        : #F9A51B   UiTM gold
+   --uitm-gold-dark   : #C47E0E   Gold dark / gradient
+   --danger           : #dc2626   Danger red
+   --danger-hover     : #b91c1c   Danger hover
+   --danger-tint      : #fff5f5   Danger bg tint
+──────────────────────────────────────────────────── */</span>
+
+<span class="c">/* ── Card hover ──────────────────────────────────── */</span>
+<span class="s">.stat-card</span> { <span class="p">transition</span>: <span class="v">transform .15s, box-shadow .15s</span>; }
+<span class="s">.stat-card:hover</span> { <span class="p">transform</span>: <span class="v">translateY(-2px)</span>; <span class="p">box-shadow</span>: <span class="v">0 8px 24px rgba(88,44,131,0.13)</span>; }
+
+<span class="c">/* ── Sidebar nav transitions ─────────────────────── */</span>
+<span class="s">.sidebar-nav-btn</span> { <span class="p">transition</span>: <span class="v">all .18s</span>; }
+
+<span class="c">/* ── Modal pop-in animation ──────────────────────── */</span>
+<span class="s">#confirmModal > div</span> { <span class="p">animation</span>: <span class="v">popIn .2s cubic-bezier(.4,0,.2,1)</span>; }
+<span class="k">@keyframes</span> popIn { from { <span class="p">transform</span>:<span class="v">scale(.95)</span>; <span class="p">opacity</span>:<span class="v">0</span>; } to { <span class="p">transform</span>:<span class="v">scale(1)</span>; <span class="p">opacity</span>:<span class="v">1</span>; } }
+
+<span class="c">/* ── Sidebar clearance dot pulse (gold) ──────────── */</span>
+<span class="s">.pulse-purple</span> { <span class="p">animation</span>: <span class="v">pulsePurple 2s infinite</span>; }
+<span class="k">@keyframes</span> pulsePurple {
+  0%,100% { <span class="p">box-shadow</span>:<span class="v">0 0 0 0 rgba(249,165,27,.5)</span>; }
+  60%     { <span class="p">box-shadow</span>:<span class="v">0 0 0 6px rgba(249,165,27,0)</span>; }
+}
+
+<span class="c">/* ── Topbar bell alert dot pulse (red) ───────────── */</span>
+<span class="s">.pulse-alert</span> { <span class="p">animation</span>: <span class="v">pulseAlert 2s infinite</span>; }
+<span class="k">@keyframes</span> pulseAlert {
+  0%,100% { <span class="p">box-shadow</span>:<span class="v">0 0 0 0 rgba(239,68,68,.4)</span>; }
+  60%     { <span class="p">box-shadow</span>:<span class="v">0 0 0 5px rgba(239,68,68,0)</span>; }
+}
+
+<span class="c">/* ── Super Admin badge ───────────────────────────── */</span>
+<span class="s">.super-badge</span> { <span class="p">background</span>: <span class="v">linear-gradient(135deg, #27134A, #582C83)</span>; }
+
+<span class="c">/* ── Toggle switch (ON = UiTM purple) ────────────── */</span>
+<span class="s">.toggle-switch</span> { <span class="p">position</span>:<span class="v">relative</span>; <span class="p">display</span>:<span class="v">inline-block</span>; <span class="p">width</span>:<span class="v">42px</span>; <span class="p">height</span>:<span class="v">24px</span>; }
+<span class="s">.toggle-switch input</span> { <span class="p">opacity</span>:<span class="v">0</span>; <span class="p">width</span>:<span class="v">0</span>; <span class="p">height</span>:<span class="v">0</span>; }
+<span class="s">.toggle-slider</span> { <span class="p">position</span>:<span class="v">absolute</span>; <span class="p">cursor</span>:<span class="v">pointer</span>; <span class="p">inset</span>:<span class="v">0</span>; <span class="p">background</span>:<span class="v">#d1d5db</span>; <span class="p">border-radius</span>:<span class="v">24px</span>; <span class="p">transition</span>:<span class="v">.3s</span>; }
+<span class="s">.toggle-slider:before</span> { <span class="p">position</span>:<span class="v">absolute</span>; <span class="p">content</span>:<span class="v">""</span>; <span class="p">width</span>:<span class="v">18px</span>; <span class="p">height</span>:<span class="v">18px</span>; <span class="p">left</span>:<span class="v">3px</span>; <span class="p">bottom</span>:<span class="v">3px</span>; <span class="p">background</span>:<span class="v">white</span>; <span class="p">border-radius</span>:<span class="v">50%</span>; <span class="p">transition</span>:<span class="v">.3s</span>; }
+<span class="s">input:checked + .toggle-slider</span> { <span class="p">background</span>: <span class="v">#582C83</span>; }
+<span class="s">input:checked + .toggle-slider:before</span> { <span class="p">transform</span>: <span class="v">translateX(18px)</span>; }
+
+<span class="c">/* ── Danger zone ─────────────────────────────────── */</span>
+<span class="s">.danger-zone</span> { <span class="p">border</span>: <span class="v">1.5px dashed #fca5a5</span>; <span class="p">background</span>: <span class="v">#fff5f5</span>; }
+
+<span class="c">/* ── Table row hover ─────────────────────────────── */</span>
+<span class="s">.log-row:hover</span> { <span class="p">background</span>:<span class="v">#f5f0ff</span>; }
+<span class="s">tr.hover-purple:hover td</span> { <span class="p">background</span>:<span class="v">#f5f0ff</span>; }
+
+<span class="c">/* ── Scrollbar ───────────────────────────────────── */</span>
+<span class="s">.scrollable</span> { <span class="p">max-height</span>:<span class="v">420px</span>; <span class="p">overflow-y</span>:<span class="v">auto</span>; }
+<span class="s">.scrollable::-webkit-scrollbar</span> { <span class="p">width</span>:<span class="v">4px</span>; }
+<span class="s">.scrollable::-webkit-scrollbar-thumb</span> { <span class="p">background</span>:<span class="v">#c4b5e8</span>; <span class="p">border-radius</span>:<span class="v">4px</span>; }
+
+<span class="c">/* ── Page fade-in ────────────────────────────────── */</span>
+<span class="k">@keyframes</span> fadeIn { from { <span class="p">opacity</span>:<span class="v">0</span>; <span class="p">transform</span>:<span class="v">translateY(5px)</span>; } to { <span class="p">opacity</span>:<span class="v">1</span>; <span class="p">transform</span>:<span class="v">translateY(0)</span>; } }
+<span class="s">main</span> { <span class="p">animation</span>: <span class="v">fadeIn 0.25s ease-out</span>; }
+
+<span class="c">/* ── Active sidebar nav item ─────────────────────── */</span>
+<span class="s">.nav-active</span> {
+  <span class="p">background</span>: <span class="v">#F9A51B</span>;
+  <span class="p">color</span>: <span class="v">#27134A</span>;
+  <span class="p">font-weight</span>: <span class="v">700</span>;
+  <span class="p">box-shadow</span>: <span class="v">0 2px 8px rgba(249,165,27,0.30)</span>;
+}
+
+<span class="c">/* ── Inactive sidebar nav hover ──────────────────── */</span>
+<span class="s">.nav-item:hover</span> { <span class="p">background</span>: <span class="v">rgba(255,255,255,0.08)</span>; <span class="p">color</span>: <span class="v">white</span>; }
+<span class="s">.nav-item:hover i</span> { <span class="p">color</span>: <span class="v">#F9A51B !important</span>; }
+
+<span class="c">/* ── Secondary / view-all button ─────────────────── */</span>
+<span class="s">.btn-secondary</span> {
+  <span class="p">color</span>: <span class="v">#582C83</span>;
+  <span class="p">background</span>: <span class="v">#f0ebfa</span>;
+  <span class="p">font-size</span>: <span class="v">0.75rem</span>;
+  <span class="p">font-weight</span>: <span class="v">600</span>;
+  <span class="p">padding</span>: <span class="v">0.375rem 0.75rem</span>;
+  <span class="p">border-radius</span>: <span class="v">0.375rem</span>;
+  <span class="p">transition</span>: <span class="v">background 0.15s</span>;
+}
+<span class="s">.btn-secondary:hover</span> { <span class="p">background</span>: <span class="v">#ddd5f5</span>; }
+
+<span class="c">/* ── Campus tab active ───────────────────────────── */</span>
+<span class="s">.campus-tab</span> { <span class="p">transition</span>:<span class="v">all .2s</span>; }
+<span class="s">.campus-tab.active</span> { <span class="p">background</span>: <span class="v">#582C83</span>; <span class="p">color</span>: <span class="v">white</span>; }
+
+<span class="c">/* ── Progress / attendance bar ───────────────────── */</span>
+<span class="s">.bar-uitm</span> { <span class="p">background</span>: <span class="v">#582C83</span>; }
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 6 — SIDEBAR HTML TEMPLATE
+  ══════════════════════════════════════════════════════ -->
+  <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+    <div class="flex items-center justify-between mb-4">
+      <p class="section-title mb-0"><i class="fas fa-sidebar mr-1"></i> Sidebar HTML Template</p>
+      <button onclick="copySidebar()" class="text-xs font-bold px-4 py-2 rounded-lg" style="background:#582C83; color:white;">
+        <i class="fas fa-copy mr-1"></i> Copy Sidebar HTML
+      </button>
+    </div>
+    <p class="text-xs text-gray-500 mb-4">Replace <code class="bg-gray-100 px-1 rounded">YOUR_PAGE.html</code> and the <code class="bg-gray-100 px-1 rounded">nav-active</code> class on the correct link for each portal.</p>
+    <div class="code-block" id="sidebarHTML" style="white-space:pre; overflow-x:auto; font-size:0.72rem;">
+<span class="c">&lt;!-- SIDEBAR — paste inside &lt;body&gt;, before your main content div --&gt;</span>
+&lt;<span class="k">aside</span> class=<span class="v">"w-64 text-white flex flex-col justify-between hidden md:flex shrink-0 shadow-xl"</span> style=<span class="v">"background:#27134A;"</span>&gt;
+  &lt;<span class="k">div</span>&gt;
+    <span class="c">&lt;!-- Logo strip --&gt;</span>
+    &lt;<span class="k">div</span> class=<span class="v">"h-16 flex items-center px-6 border-b"</span> style=<span class="v">"border-color:rgba(88,44,131,0.5); background:rgba(88,44,131,0.25);"</span>&gt;
+      &lt;<span class="k">div</span> class=<span class="v">"bg-amber-400 text-purple-950 px-2.5 py-1 rounded-md font-extrabold text-lg tracking-wider mr-2 leading-tight"</span>&gt;Ui&lt;/<span class="k">div</span>&gt;
+      &lt;<span class="k">span</span> class=<span class="v">"font-bold text-xl tracking-wide"</span>&gt;Vent&lt;/<span class="k">span</span>&gt;
+      &lt;<span class="k">span</span> class=<span class="v">"text-xs super-badge text-white ml-2 px-1.5 py-0.5 rounded uppercase font-bold tracking-wide"</span>&gt;Super&lt;/<span class="k">span</span>&gt;
+    &lt;/<span class="k">div</span>&gt;
+    <span class="c">&lt;!-- Clearance badge --&gt;</span>
+    &lt;<span class="k">div</span> class=<span class="v">"mx-4 mt-4 mb-2 rounded-lg px-3 py-2 flex items-center gap-2"</span>
+         style=<span class="v">"background:rgba(249,165,27,0.10); border:1px solid rgba(249,165,27,0.25);"</span>&gt;
+      &lt;<span class="k">span</span> class=<span class="v">"w-2 h-2 rounded-full bg-amber-400 pulse-purple"</span>&gt;&lt;/<span class="k">span</span>&gt;
+      &lt;<span class="k">span</span> class=<span class="v">"text-xs font-semibold"</span> style=<span class="v">"color:#F9A51B;"</span>&gt;Clearance Level: APEX&lt;/<span class="k">span</span>&gt;
+    &lt;/<span class="k">div</span>&gt;
+    <span class="c">&lt;!-- Nav links — add nav-active to THIS page's link, nav-item to all others --&gt;</span>
+    &lt;<span class="k">nav</span> class=<span class="v">"mt-2 px-4 space-y-1"</span>&gt;
+      &lt;<span class="k">a</span> href=<span class="v">"command_centre.html"</span> class=<span class="v">"sidebar-nav-btn nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-purple-200 transition-all"</span>&gt;
+        &lt;<span class="k">i</span> class=<span class="v">"fas fa-shield-halved text-lg w-5 text-purple-400"</span>&gt;&lt;/<span class="k">i</span>&gt;&lt;<span class="k">span</span>&gt;Command Centre&lt;/<span class="k">span</span>&gt;
+      &lt;/<span class="k">a</span>&gt;
+      &lt;<span class="k">a</span> href=<span class="v">"campus_oversight.html"</span> class=<span class="v">"sidebar-nav-btn nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-purple-200 transition-all"</span>&gt;
+        &lt;<span class="k">i</span> class=<span class="v">"fas fa-university text-lg w-5 text-purple-400"</span>&gt;&lt;/<span class="k">i</span>&gt;&lt;<span class="k">span</span>&gt;Campus Oversight&lt;/<span class="k">span</span>&gt;
+      &lt;/<span class="k">a</span>&gt;
+      &lt;<span class="c">... add more nav links the same way ...</span>&gt;
+    &lt;/<span class="k">nav</span>&gt;
+  &lt;/<span class="k">div</span>&gt;
+  <span class="c">&lt;!-- Footer --&gt;</span>
+  &lt;<span class="k">div</span> class=<span class="v">"p-4 border-t"</span> style=<span class="v">"border-color:rgba(88,44,131,0.4); background:rgba(39,19,74,0.7);"</span>&gt;
+    &lt;<span class="k">div</span> class=<span class="v">"flex items-center space-x-3"</span>&gt;
+      &lt;<span class="k">img</span> class=<span class="v">"w-9 h-9 rounded-full ring-2 ring-purple-900/40 object-cover"</span> src=<span class="v">"AVATAR_URL"</span> alt=<span class="v">"Admin"</span>&gt;
+      &lt;<span class="k">div</span>&gt;
+        &lt;<span class="k">p</span> class=<span class="v">"text-xs font-semibold truncate"</span> style=<span class="v">"color:rgba(255,255,255,0.85);"</span>&gt;Admin Name&lt;/<span class="k">p</span>&gt;
+        &lt;<span class="k">p</span> class=<span class="v">"text-xs truncate"</span> style=<span class="v">"color:#F9A51B;"</span>&gt;Role&lt;/<span class="k">p</span>&gt;
+      &lt;/<span class="k">div</span>&gt;
+    &lt;/<span class="k">div</span>&gt;
+  &lt;/<span class="k">div</span>&gt;
+&lt;/<span class="k">aside</span>&gt;
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <div class="text-center text-xs text-gray-400 pb-8">
+    UiVent · UiTM HEP Division · Theme Reference v2026 &nbsp;·&nbsp;
+    Keep this file private — for group members only.
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div id="copyToast" class="fixed bottom-6 right-6 z-[999] hidden">
+  <div class="text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3"
+       style="background:#27134A; border:1px solid rgba(88,44,131,0.5);">
+    <i class="fas fa-check-circle" style="color:#F9A51B;"></i>
+    <span id="copyToastMsg">Copied!</span>
+  </div>
+</div>
+
+<script>
+let toastTimer;
+function showCopyToast(msg) {
+  const el = document.getElementById('copyToast');
+  document.getElementById('copyToastMsg').textContent = msg;
+  el.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.add('hidden'), 2200);
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    btn.style.background = '#d1fae5';
+    btn.style.color = '#065f46';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 1500);
+    showCopyToast(text + ' copied!');
+  });
+}
+
+function copyFullCSS() {
+  const raw = `/* ═══════════════════════════════════════════════════
+   UiVent — UiTM Brand Theme Tokens
+═══════════════════════════════════════════════════ */
+
+.stat-card { transition: transform .15s, box-shadow .15s; }
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(88,44,131,0.13); }
+
+.sidebar-nav-btn { transition: all .18s; }
+
+#confirmModal > div { animation: popIn .2s cubic-bezier(.4,0,.2,1); }
+@keyframes popIn { from { transform:scale(.95); opacity:0; } to { transform:scale(1); opacity:1; } }
+
+.pulse-purple { animation: pulsePurple 2s infinite; }
+@keyframes pulsePurple {
+  0%,100% { box-shadow:0 0 0 0 rgba(249,165,27,.5); }
+  60%     { box-shadow:0 0 0 6px rgba(249,165,27,0); }
+}
+
+.pulse-alert { animation: pulseAlert 2s infinite; }
+@keyframes pulseAlert {
+  0%,100% { box-shadow:0 0 0 0 rgba(239,68,68,.4); }
+  60%     { box-shadow:0 0 0 5px rgba(239,68,68,0); }
+}
+
+.super-badge { background: linear-gradient(135deg, #27134A, #582C83); }
+
+.toggle-switch { position:relative; display:inline-block; width:42px; height:24px; }
+.toggle-switch input { opacity:0; width:0; height:0; }
+.toggle-slider { position:absolute; cursor:pointer; inset:0; background:#d1d5db; border-radius:24px; transition:.3s; }
+.toggle-slider:before { position:absolute; content:""; width:18px; height:18px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.3s; }
+input:checked + .toggle-slider { background:#582C83; }
+input:checked + .toggle-slider:before { transform:translateX(18px); }
+
+.danger-zone { border: 1.5px dashed #fca5a5; background: #fff5f5; }
+
+.log-row:hover { background:#f5f0ff; }
+tr.hover-purple:hover td { background:#f5f0ff; }
+
+.scrollable { max-height:420px; overflow-y:auto; }
+.scrollable::-webkit-scrollbar { width:4px; }
+.scrollable::-webkit-scrollbar-thumb { background:#c4b5e8; border-radius:4px; }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+main { animation: fadeIn 0.25s ease-out; }
+
+.nav-active {
+  background: #F9A51B;
+  color: #27134A;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(249,165,27,0.30);
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.08); color: white; }
+.nav-item:hover i { color: #F9A51B !important; }
+
+.btn-secondary {
+  color: #582C83;
+  background: #f0ebfa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: #ddd5f5; }
+
+.campus-tab { transition:all .2s; }
+.campus-tab.active { background: #582C83; color: white; }
+
+.bar-uitm { background: #582C83; }`;
+  navigator.clipboard.writeText(raw).then(() => showCopyToast('Full CSS copied to clipboard!'));
+}
+
+function copySidebar() {
+  const raw = `<aside class="w-64 text-white flex flex-col justify-between hidden md:flex shrink-0 shadow-xl" style="background:#27134A;">
+  <div>
+    <div class="h-16 flex items-center px-6 border-b" style="border-color:rgba(88,44,131,0.5); background:rgba(88,44,131,0.25);">
+      <div class="bg-amber-400 text-purple-950 px-2.5 py-1 rounded-md font-extrabold text-lg tracking-wider mr-2 leading-tight">Ui</div>
+      <span class="font-bold text-xl tracking-wide">Vent</span>
+      <span class="text-xs super-badge text-white ml-2 px-1.5 py-0.5 rounded uppercase font-bold tracking-wide">Super</span>
+    </div>
+    <div class="mx-4 mt-4 mb-2 rounded-lg px-3 py-2 flex items-center gap-2"
+         style="background:rgba(249,165,27,0.10); border:1px solid rgba(249,165,27,0.25);">
+      <span class="w-2 h-2 rounded-full bg-amber-400 pulse-purple"></span>
+      <span class="text-xs font-semibold" style="color:#F9A51B;">Clearance Level: APEX</span>
+    </div>
+    <nav class="mt-2 px-4 space-y-1">
+      <a href="command_centre.html" class="sidebar-nav-btn nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-purple-200 transition-all">
+        <i class="fas fa-shield-halved text-lg w-5 text-purple-400"></i><span>Command Centre</span>
+      </a>
+      <a href="campus_oversight.html" class="sidebar-nav-btn nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-purple-200 transition-all">
+        <i class="fas fa-university text-lg w-5 text-purple-400"></i><span>Campus Oversight</span>
+      </a>
+    </nav>
+  </div>
+  <div class="p-4 border-t" style="border-color:rgba(88,44,131,0.4); background:rgba(39,19,74,0.7);">
+    <div class="flex items-center space-x-3">
+      <img class="w-9 h-9 rounded-full ring-2 ring-purple-900/40 object-cover" src="AVATAR_URL" alt="Admin">
+      <div>
+        <p class="text-xs font-semibold truncate" style="color:rgba(255,255,255,0.85);">Admin Name</p>
+        <p class="text-xs truncate" style="color:#F9A51B;">Role</p>
+      </div>
+    </div>
+  </div>
+</aside>`;
+  navigator.clipboard.writeText(raw).then(() => showCopyToast('Sidebar HTML copied to clipboard!'));
+}
+</script>
+</body>
+</html>
